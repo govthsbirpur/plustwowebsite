@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Government +2 High School Birpur - ID Card Generator">
+    <title>पहचान पत्र जनरेटर - गवर्नमेंट +2 हाई स्कूल, बीरपुर</title>
+    <link rel="stylesheet" href="icard.css">
+    <link rel="icon" href="image/download.png" type="image/x-icon">
+</head>
+
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="image/download.png" alt="Government +2 High School Logo" class="school-logo">
+            <div class="school-info">
+                <h1>गवर्नमेंट +2 हाई स्कूल, बीरपुर</h1>
+                <p>उत्कृष्टता की ओर अग्रसर</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="menu">
+            <li><a href="home.html" class="nav">मुख्य पृष्ठ</a></li>
+            <li><a href="about.html" class="nav">विद्यालय परिचय</a></li>
+            <li><a href="instruction.html" class="nav">प्रवेश</a></li>
+            <li><a href="gallary.html" class="nav">गैलरी</a></li>
+            <li class="dropdown">
+                <a href="#" class="nav">कक्षाएं</a>
+                <ul class="dropdown-menu">
+                    <li><a href="classix.html">कक्षा IX</a></li>
+                    <li><a href="#">कक्षा X</a></li>
+                    <li class="sub-dropdown">
+                        <a href="#">कक्षा XI</a>
+                        <ul class="sub-dropdown-menu">
+                            <li><a href="scienceweb.html">विज्ञान</a></li>
+                            <li><a href="artsweb.htm">कला</a></li>
+                            <li><a href="#">वाणिज्य</a></li>
+                            <li><a href="agricultureweb.html">कृषि</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-dropdown">
+                        <a href="#">कक्षा XII</a>
+                        <ul class="sub-dropdown-menu">
+                            <li><a href="scienceweb.html">विज्ञान</a></li>
+                            <li><a href="artsweb.htm">कला</a></li>
+                            <li><a href="#">वाणिज्य</a></li>
+                            <li><a href="agricultureweb.html">कृषि</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="textbook.html" class="nav">पाठ्यपुस्तक लिंक</a></li>
+            <li><a href="icard.html" class="nav active">पहचान पत्र</a></li>
+        </ul>
+    </nav>
+
+    <div class="scrolling-text">
+        <marquee behavior="scroll" direction="left">
+            विद्यां ददाति विनयं, विनयाद् याति पात्रताम् ।
+            पात्रत्वात् धनमाप्नोति, धनात् धर्मं ततः सुखम् ॥
+            विद्या विनय देती है, विनय से पात्रता आती है,
+            पात्रता से धन आता है, धन से धर्म होता है,
+            और धर्म से सुख प्राप्त होता है।
+        </marquee>
+    </div>
+    <h1 class="section-title">विद्यार्थी पहचान पत्र जनरेटर</h1>
+
+    <main class="id-card-container">
+
+        <div class="id-card-wrapper">
+            <!-- Form Section -->
+            <div class="form-container hide-on-print">
+                <h2 class="form-title">विद्यार्थी की जानकारी भरें</h2>
+                <form id="idCardForm" class="id-card-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">नाम:</label>
+                            <input type="text" id="name" name="name" required placeholder="विद्यार्थी का पूरा नाम">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentId">रोल नंबर:</label>
+                            <input type="text" id="studentId" name="studentId" required placeholder="विद्यालय रोल नंबर">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="class">कक्षा:</label>
+                            <select id="class" name="class" required>
+                                <option value="">कक्षा चुनें</option>
+                                <option value="IX">कक्षा IX</option>
+                                <option value="X">कक्षा X</option>
+                                <option value="XI">कक्षा XI</option>
+                                <option value="XII">कक्षा XII</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Faculty">संकाय:</label>
+                            <select id="Faculty" name="Faculty" required>
+                                <option value="">संकाय/Section चुनें</option>
+                                <option value="विज्ञान">विज्ञान</option>
+                                <option value="कला">कला</option>
+                                <option value="वाणिज्य">वाणिज्य</option>
+                                <option value="कृषि">कृषि</option>
+                                <option value="Section-A">Section-A</option>
+                                <option value="Section-B">Section-B</option>
+                                <option value="Section-C">Section-C</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address">पता:</label>
+                            <input type="text" id="address" name="address" required placeholder="पूरा पता">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">फोन नंबर:</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required
+                                placeholder="10 अंकों का मोबाइल नंबर">
+                        </div>
+                    </div>
+
+                    <div class="form-actions-container">
+                        <div class="photo-section">
+                            <div class="form-group photo-upload">
+                                <label for="photo">फोटो अपलोड करें:</label>
+                                <div class="upload-wrapper">
+                                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                                    <div class="upload-info">
+                                        <p>अनुमत फॉर्मेट: JPG, PNG</p>
+                                        <p>अधिकतम साइज: 2MB</p>
+                                    </div>
+                                </div>
+                                <div class="photo-preview" id="photoPreview">
+                                    <div class="preview-placeholder">
+                                        <span class="icon">📷</span>
+                                        <p>फोटो प्रीव्यू</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttons-section">
+                            <div class="form-actions">
+                                <button type="button" class="reset-btn" onclick="resetForm()">
+                                    <span class="icon">🔄</span> रीसेट करें
+                                </button>
+                                <button type="button" class="generate-btn" onclick="generateIDCard()">
+                                    <span class="icon">✨</span> पहचान पत्र बनाएं
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ID Card Preview Section -->
+            <div class="id-card-preview" id="idCardPreview" style="display: none;">
+                <div class="preview-header hide-on-print">
+                    <h2>पहचान पत्र प्रीव्यू</h2>
+                    <div class="preview-actions">
+                        <button type="button" class="action-button print-button" onclick="printIDCard()">
+                            <i class="fas fa-print"></i> पहचान पत्र प्रिंट करें
+                        </button>
+                    </div>
+                </div>
+
+                <div class="id-card">
+                
+                    <div class="card-header" style="background-color: coral;">
+
+                        <img src="image/download.png" alt="School Logo" class="card-logo">
+                        <div class="school-details">
+                            <h2>गवर्नमेंट +2 हाई स्कूल, बीरपुर</h2>
+                            <p>सुपौल, बिहार - 847105</p>
+                            <p>STUDENT'SIDENTITY CARD</p>
+                        </div>
+                        <div class="session-info">
+                            <p>शैक्षणिक सत्र 2025-26</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="card-body">
+                        <div class="student-photo">
+                            <img id="profilePhoto" src="#" alt="विद्यार्थी का फोटो">
+                        </div>
+
+                        <div class="student-details">
+                            <div class="detail-row">
+                                <span class="label">नाम:</span>
+                                <span id="cardName" class="value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">रोल नंबर:</span>
+                                <span id="cardStudent" class="value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">कक्षा:</span>
+                                <span id="cardClass" class="value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">संकाय:</span>
+                                <span id="cardFaculty" class="value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">पता:</span>
+                                <span id="cardAddress" class="value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">फोन:</span>
+                                <span id="cardPhone" class="value"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="signature-section">
+                            <div class="student-sign">
+                                <div class="sign-line"></div>
+                                <p>विद्यार्थी के हस्ताक्षर</p>
+                            </div>
+                            <div class="principal-sign">
+                                <div class="sign-line"></div>
+                                <p>प्राचार्य का हस्ताक्षर</p>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>कृपया प्रतीक्षा करें...</p>
+    </div>
+
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <span class="toast-icon">ℹ️</span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script>
+        
+    // Function to generate ID card
+    function generateIDCard() {
+        if (!validateForm()) {
+            showToast('कृपया सभी आवश्यक जानकारी भरें', 'error');
+            return;
+        }
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const studentId = document.getElementById('studentId').value;
+        const studentClass = document.getElementById('class').value;
+        const faculty = document.getElementById('Faculty').value;
+        const address = document.getElementById('address').value;
+        const phone = document.getElementById('phone').value;
+        const photo = document.getElementById('photo').files[0];
+
+        // Display preview
+        document.getElementById('cardName').textContent = name;
+        document.getElementById('cardStudent').textContent = studentId;
+        document.getElementById('cardClass').textContent = studentClass;
+        document.getElementById('cardFaculty').textContent = faculty;
+        document.getElementById('cardAddress').textContent = address;
+        document.getElementById('cardPhone').textContent = phone;
+
+        // Display photo
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('profilePhoto').src = e.target.result;
+        };
+        reader.readAsDataURL(photo);
+
+        // Show preview section
+        document.getElementById('idCardPreview').style.display = 'block';
+        showToast('पहचान पत्र सफलतापूर्वक जनरेट हुआ', 'success');
+    }
+
+    // Function to reset form
+    function resetForm() {
+        document.getElementById('idCardForm').reset();
+        document.getElementById('photoPreview').innerHTML = `
+            <div class="preview-placeholder">
+                <span class="icon">📷</span>
+                <p>फोटो प्रीव्यू</p>
+            </div>`;
+        document.getElementById('idCardPreview').style.display = 'none';
+        showToast('फॉर्म रीसेट हो गया', 'info');
+    }
+
+    // Function to print ID card
+    function printIDCard() {
+        window.print();
+    }
+
+    // Function to preview photo
+    document.getElementById('photo').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('photoPreview').innerHTML = `
+                    <img src="${e.target.result}" alt="Uploaded Photo" class="preview-image">`;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+
+    // Toast notification system
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('toast');
+        const toastMessage = toast.querySelector('.toast-message');
+        const toastIcon = toast.querySelector('.toast-icon');
+
+        toastMessage.textContent = message;
+
+        // Set icon based on type
+        switch (type) {
+            case 'success':
+                toastIcon.textContent = '✅';
+                break;
+            case 'error':
+                toastIcon.textContent = '❌';
+                break;
+            case 'warning':
+                toastIcon.textContent = '⚠️';
+                break;
+            default:
+                toastIcon.textContent = 'ℹ️';
+        }
+
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // Function to preview photo
+    document.getElementById('photo').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('photoPreview').innerHTML = `
+                    <img src="${e.target.result}" alt="Uploaded Photo" class="preview-image">`;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Function to generate ID card
+    function generateIDCard() {
+        if (!validateForm()) {
+            showToast('कृपया सभी आवश्यक जानकारी भरें', 'error');
+            return;
+        }
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const studentId = document.getElementById('studentId').value;
+        const studentClass = document.getElementById('class').value;
+        const faculty = document.getElementById('Faculty').value;
+        const address = document.getElementById('address').value;
+        const phone = document.getElementById('phone').value;
+        const photo = document.getElementById('photo').files[0];
+
+        // Display preview
+        document.getElementById('cardName').textContent = name;
+        document.getElementById('cardStudent').textContent = studentId;
+        document.getElementById('cardClass').textContent = studentClass;
+        document.getElementById('cardFaculty').textContent = faculty;
+        document.getElementById('cardAddress').textContent = address;
+        document.getElementById('cardPhone').textContent = phone;
+
+        // Display photo
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('profilePhoto').src = e.target.result;
+        };
+        reader.readAsDataURL(photo);
+
+        // Show preview section
+        document.getElementById('idCardPreview').style.display = 'block';
+        showToast('पहचान पत्र सफलतापूर्वक जनरेट हुआ', 'success');
+    }
+
+    // Function to reset form
+    function resetForm() {
+        document.getElementById('idCardForm').reset();
+        document.getElementById('photoPreview').innerHTML = `
+            <div class="preview-placeholder">
+                <span class="icon">📷</span>
+                <p>फोटो प्रीव्यू</p>
+            </div>`;
+        document.getElementById('idCardPreview').style.display = 'none';
+        showToast('फॉर्म रीसेट हो गया', 'info');
+    }
+
+    // Function to print ID card
+    function printIDCard() {
+        window.print();
+    }
+
+    // Form validation
+    function validateForm() {
+        const form = document.getElementById('idCardForm');
+        const inputs = form.querySelectorAll('input[required], select[required]');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (!input.value) {
+                isValid = false;
+                input.classList.add('error');
+            } else {
+                input.classList.remove('error');
+            }
+        });
+
+        return isValid;
+    }
+
+    </script>
+</body>
+
+</html>

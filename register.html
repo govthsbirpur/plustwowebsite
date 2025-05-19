@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Government +2 High School</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #42b72a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #36a420;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .login-link a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        /* register.css में जोड़ें */
+@media screen and (max-width: 768px) {
+    .register-container {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+        padding: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="image/download.png" alt="Government +2 High School Logo" class="school-logo">
+            <div class="school-info">
+                <h1>गवर्नमेंट +2 हाई स्कूल, बीरपुर</h1>
+                <p>उत्कृष्टता की ओर अग्रसर</p>
+            </div>
+        </div>
+    </header>
+    <div class="login-container">
+        <h2 style="text-align: center; margin-bottom: 1.5rem;">Create Account</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div> 
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-link" style="text-align: center; margin-top: 1rem;">
+            Already have an account?
+            <a href="login.html" style="color: #42b72a; text-decoration: none;">Login Here</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/api/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.message || 'Server returned an error');
+                }
+
+                const data = await response.json();
+                alert('Account created successfully! Please login.');
+                window.location.href = 'login.html';
+            } catch (error) {
+                if (error.name === 'TypeError') {
+                    // Network error
+                    alert('Cannot connect to the server. Please check:\n' +
+                          '1. Server is running\n' +
+                          '2. MongoDB is running\n' +
+                          '3. Try restarting both server and MongoDB\n' +
+                          'Error details: ' + error.message);
+                } else {
+                    // Handle different types of errors
+                    if (error.message) {
+                        alert(`Error: ${error.message}`);
+                    } else {
+                        alert('An unexpected error occurred. Please try again.');
+                    }
+                }
+                console.error('Signup error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

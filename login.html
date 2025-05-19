@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="image/download.png" alt="Government +2 High School Logo" class="school-logo">
+            <div class="school-info">
+                <h1>गवर्नमेंट +2 हाई स्कूल, बीरपुर</h1>
+                <p>उत्कृष्टता की ओर अग्रसर</p> 
+            </div>
+        </div>
+    </header>
+    <div class="login-container">
+        <h2 style="text-align: center; margin-bottom: 1.5rem;">Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        
+    </div>
+    <div class="login-link" style="text-align: center; margin-top: 1rem;">Create New Account
+        <a href="register.html" style="color: #42b72a; text-decoration: none;">Signup Here</a>
+    </div>
+    <div style="text-align: center; margin-top: 1rem;">
+        <a href="forgot-password.html" style="color: #42b72a; text-decoration: none;">Forget Passwords</a>
+    </div>
+    <div style="text-align: center; margin-top: 1rem;">
+        <a href="payment.html" style="color: #42b72a; text-decoration: none;">Make Payment</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        const secretKey = "mySuperSecretKey123";
+
+        function encryptData(data, secretKey) {
+            return CryptoJS.AES.encrypt(JSON.stringify(data), secretKey).toString();
+        }
+
+        function decryptData(encryptedData, secretKey) {
+            const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
+            return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Login successful
+                    alert('Login successful!');
+                    // Redirect to home page
+                    window.location.href = '/home.html';
+                } else {
+                    // Login failed
+                    alert(data.message || 'Login failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred during login');
+            }
+        });
+
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            // Add logout functionality here
+            alert('Logged out successfully!');
+            // Redirect to login page
+        });
+    </script>
+</body>
+</html>

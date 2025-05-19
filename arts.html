@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artsadmission</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="menu">
+            <div>
+                <img src="image/download.png" alt="" class="logo">
+                <div>
+                    <p class="name">GOVT. +2 HIGH SCHOOL</p>
+                </div>
+            </div>
+            <li><a href="home.html" class="nav">HOME</a></li>
+            <li><a href="about.html" class="nav">ABOUT of school</a></li>
+            <li><a href="admission.html" class="nav">ADMISSION</a></li>
+            <li><a href="gallary.html" class="nav">GALLARY</a></li>
+            <li><a href="#" class="nav">CLASS</a>
+                <ul class="dropdown">
+                    <li><a href="classix.html">class-ix</a></li>
+                    <li><a href="#">class-x</a></li>
+                    <li><a href="home.html">class-xi</a> SCIENCE</li>
+                    <li><a href="#">class-xi</a> ARTS</li>
+                    <li><a href="#">class-xi</a> COMMERCE</li>
+                    <li><a href="agricultureweb.html">class-xi</a> AGRICULTURE</li>
+                    <li><a href="#">class-xii</a></li>
+                </ul>
+            </li>
+            <li><a href="textbook.html" class="nav">TEXT BOOK LINK</a></li>
+            <li><a href="#" class="nav">PRINT IDENTITY CARD</a></li>
+        </ul>
+    </div>
+    <div class="heading">Welcome to Class-XI (ARTS) <br>Govt +2 High School, Birpur, Supaul</div>
+    <div class="sloka">
+        <marquee behavior="scroll" direction="left">
+            विद्यां ददाति विनयं, विनयाद् याति पात्रताम् । पात्रत्वात् धनमाप्नोति, धनात् धर्मं ततः सुखम् ॥
+            हिन्दी भावार्थ: विद्या विनय देती है, विनय से पात्रता आती है, पात्रता से धन आता है, धन से धर्म होता है,
+            और धर्म से सुख प्राप्त होता है
+        </marquee>
+        <div class="instruction">
+            <ul>
+                <li><a href="instruction.html">Instructions</a></li>
+            </ul>
+        </div>
+    </div>
+    <h1 style="color: rgb(24, 132, 67); text-align: center;"> ADMISSION FORM</h1>
+    <div id="successMessage" style="display: none; color: green; text-align: center; margin: 20px 0;"></div>
+    <form id="admissionForm" action="http://localhost:3000/submit_form" method="post" enctype="multipart/form-data">
+        <div class="formcontainer">
+            <h3>Class & Faculty</h3>
+            <div class="class">
+                <label for="class">1. Class:</label>
+
+                <input type="text" id="class" name="class" required><br><br>
+                <label for="faculty">2.Faculty:</label>
+                <select id="faculty" name="faculty" required>
+                    <option value="Select">Select</option>
+                    <option value="Arts">Arts</option>
+                </select>
+            </div>
+            <h3>PERSONAL DETAIL</h3>
+            <div class="personaldetail">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+                <label for="father_name">Father's Name:</label>
+                <input type="text" id="father_name" name="father_name" placeholder="Enter your father's name"><br><br>
+                <label for="mother_name">Mother's Name:</label>
+                <input type="text" id="mother_name" name="mother_name" placeholder="Enter your mother's name"><br><br>
+                <label for="aadhar">Student's AADHAR No. (12 digits):</label>
+                <input type="text" id="aadhar" name="aadhar" maxlength="12" pattern="\d{12}"
+                    title="Please enter exactly 12 digits" placeholder="Enter student's AADHAR No." required><br><br>
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="Select">Select</option>
+                    <option value="Gen">Gen</option>
+                    <option value="OBC">OBC</option>
+                    <option value="EBC">EBC</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                </select>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="select">select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31"
+                    required><br><br>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required><br><br>
+                <label for="studentEmail">Student's Email Address:</label>
+                <input type="email" id="studentEmail" name="studentEmail" placeholder="Enter student's email"
+                    required><br><br>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" maxlength="10" pattern="\d{10}"
+                    title="Please enter exactly 10 digits" required><br><br>
+            </div>
+            <h3>Board Exam Detail</h3>
+            <div class="detailsboardexam">
+                <label for="board_name">Name of Board Exam:</label>
+                <input type="text" id="board_name" name="board_name" required><br><br>
+                <label for="board_marks">Marks in Board Exam:</label>
+                <input type="text" id="board_marks" name="board_marks" required><br><br>
+                <label for="prev_school">Name of Previous School:</label>
+                <input type="text" id="prev_school" name="prev_school" required><br><br>
+                <label for="prev_school">Roll code:</label>
+                <input type="text" id="Roll_code" name="Roll_code" required><br><br>
+            </div>
+            <h3>Subjects</h3>
+            <div class="subject">
+                <label for="Language-1">Language-1:</label>
+                <select id="Language-1" name="Language-1" title="choose any one language" required>
+                    <option value="Select">Select</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="English">English</option>
+                </select>
+
+                <label for="Language-2">Language-2:</label>
+                <select id="Language-2" name="Language-2" title="choose any one language" required>
+                    <option value="Select">Select</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="English">English</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Maithili">Maithili</option>
+                </select>
+                <label for="Optional-1">Optional-1:</label>
+                <select id="Optional-1" name="Optional-1" title="choose any one subject" required>
+                    <option value="Select">Select</option>
+                    <option value="History">History</option>
+                    <option value="Political-Science">Political-Science</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Home-Science">Home-Science</option>
+                    <option value="Economics">Economics</option>
+                </select>
+                <label for="Optional-2">Optional-2:</label>
+                <select id="Optional-2" name="Optional-2" title="choose any one subject" required>
+                    <option value="Select">Select</option>
+                    <option value="History">History</option>
+                    <option value="Political-Science">Political-Science</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Home-Science">Home-Science</option>
+                    <option value="Economics">Economics</option>
+                </select>
+                <label for="Optional-3">Optional-3:</label>
+                <select id="Optional-3" name="Optional-3" title="choose any one subject" required><br><br>
+                    <option value="Select">Select</option>
+                    <option value="History">History</option>
+                    <option value="Political-Science">Political-Science</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Home-Science">Home-Science</option>
+                    <option value="Economics">Economics</option>
+                </select>
+                <label for="Additional-subject">Additional subject:</label>
+                <select id="Additional-subject" name="Additional-subject"
+                    title="choose any one subject but not compulsary" required><br><br>
+                    <option value="Select">Select</option>
+                    <option value="History">History</option>
+                    <option value="Political-Science">Political-Science</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Home-Science">Home-Science</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Computer-science">Computer-science</option>
+                </select>
+            </div>
+            <h3>Upload Documents</h3>
+            <div class="uploadphoto">
+                <label for="documents">Upload Documents (up to 10 files):</label>
+                <input type="file" id="documents" name="documents" accept="image/*,.pdf,.doc,.docx" multiple
+                    required><br><br>
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-button">
+                <button type="submit">Submit</button>
+            </div>
+            <div id="printSection" style="display: none;">
+                <button onclick="printForm()" class="print-button">Print Form</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        // Form submission handler
+        document.getElementById('admissionForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Validation
+            const requiredFields = ['name', 'father_name', 'mother_name', 'aadhar', 'category', 'gender', 'dob', 'address', 'studentEmail', 'phone'];
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!document.getElementById(field).value.trim()) {
+                    isValid = false;
+                    alert(`Please fill in the ${field} field`);
+                }
+            });
+
+            if (!isValid) {
+                return false;
+            }
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+
+            // Convert form data to object
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            // Open print page with form data
+            const printUrl = `print-form.html?data=${encodeURIComponent(JSON.stringify(data))}`;
+            window.open(printUrl, '_blank');
+
+            // Submit form to server
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Form submitted successfully:', data);
+                    alert('Form submitted successfully!');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error submitting form. Please try again.');
+                });
+        });
+
+        // Print function
+        function printForm() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>
